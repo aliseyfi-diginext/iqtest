@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 50px;
+}
+
+.answers-pictures {
+    margin-top: 50px;
+}
+
+.answers-pictures img {
+    margin: 10px;
+    cursor: pointer;
+    border: 5px solid white;
+    padding: 10px;
+    padding-left: 25px;
+}
+
+.answers-pictures img:hover {
+    border-color: blue;
+}
+
+
+.question:not(:first-child) {
+    display: none;
+}
+
+.menu {
+    text-align: center;
+}
+
+.menu button {
+    font-size: 1.5rem;
+    margin: 5px;
+    cursor: pointer;
+    background: none;
+    border: 3px solid black;
+    color: black;
+    transition: 0.2s;
+}
+
+.menu button:hover {
+    transform: scale(1.25);
+}
+
+.menu button.active {
+    border-color: blue;
+    border-style: dashed;
+    color: blue;
+}
