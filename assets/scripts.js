@@ -21,27 +21,30 @@ $(document).ready(function () {
 
         `;
 
-        buttons += `<button ${i == 1 ? 'class="active"' : ''} type="button" name="button">${i}</button>`;
+        buttons += `<button ${i == 1 ? 'class="active"' : ''} type="button" class="btn-${i}" name="button">${i}</button>`;
     }
 
     $('.container').html(contents);
     $('.menu').html(buttons);
 
+});
 
-    $('.answers-pictures img').click(function(){
 
-        // find out current question
-        var currentQuestion = Number($(this).parents('.question').attr('data-current-question'));
+$(document).on('click', '.answers-pictures img', function () {
 
-        // find answer
-        var answer = $(this).attr('data-value');
-        $(this).parents('.answers-pictures').attr('data-answer', answer);
+    // find out current question
+    var currentQuestion = Number($(this).parents('.question').attr('data-current-question'));
 
-        // display next question
-        $(`#q${currentQuestion}`).hide();
-        $(`#q${currentQuestion+1}`).slideDown();
+    // find answer
+    var answer = $(this).attr('data-value');
+    $(this).parents('.answers-pictures').attr('data-answer', answer);
 
-        $('button').removeClass('active');
-    });
+    // display next question
+    $(`#q${currentQuestion}`).hide();
+    $(`#q${currentQuestion+1}`).slideDown();
+
+    // change buttons style
+    $('button').removeClass('active');
+    $(`.btn-${currentQuestion+1}`).addClass('active');
 
 });
